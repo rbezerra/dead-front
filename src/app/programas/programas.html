@@ -1,27 +1,16 @@
 <div>
-
-  <md-content layout="row" layout-align="center center" layout-wrap>
-    <section flex>
-      <h2 class="md-title">Programas</h2>
-      <md-input-container>
-        <label for="nome">Nome do Programa</label>
-        <input type="text" ng-model="prog.programa.nome">
-      </md-input-container>
-      <md-input-container>
-        <label for="sigla">Sigla do Programa</label>
-        <input type="text" ng-model="prog.programa.sigla">
-      </md-input-container>
-      <md-input-container>
-        <label for="descricao">Descrição do Programa</label>
-        <textarea ng-model="prog.programa.descricao"></textarea>
-      </md-input-container>
-      <md-button class="md-raised md-primary" ng-click="prog.save(prog.programa)">{{!prog.edit ? 'Novo' : 'Editar'}}</md-button>
-      <md-button class="md-raised md-warn" ng-click="prog.resetForm()">Cancelar</md-button>
-    </section>
-    <div flex> </div>
+  <md-content layout="row" layout-align="start center" layout-wrap>
     <section>
       <!-- <md-data-table-toolbar>
       </md-data-table-toolbar> -->
+        <div layout="row" layout-align="start center">
+          <h2 class="md-title">Programas</h2>
+          <md-button class="md-fab md-mini md-primary" aria-label="Adicionar Programa" ng-click="prog.editarPrograma($event, null)">
+            <md-icon  class="md-48" layout-align="center center">
+              <i class="material-icons">add</i>
+            </md-icon>
+          </md-button>
+        </div>
         <table>
           <thead>
             <tr>
@@ -32,17 +21,18 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="programa in prog.programas" ng-click="prog.editarPrograma(programa)">
+            <tr ng-repeat="programa in prog.programas" flex-sm="100" flex-md="100" flex-gt-md="auto">
               <td>{{programa.nome}}</td>
               <td>{{programa.sigla}}</td>
               <td>{{programa.descricao}}</td>
-              <td ng-click="prog.confirmRemove($event, programa)"><i class="material-icons">delete</i></td>
+              <td>
+                <i ng-click="prog.editarPrograma($event, programa)" class="material-icons">edit</i>
+                <i ng-click="prog.confirmRemove($event, programa)" class="material-icons">delete</i>
+              </td>
             </tr>
           </tbody>
         </table>
     </section>
-    <div flex></div>
-
   </md-content>
 
 </div>

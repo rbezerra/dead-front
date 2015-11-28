@@ -1,0 +1,39 @@
+<md-dialog ng-cloak flex-sm="100" flex-md="100" flex-gt-md="auto">
+  <div layout="column">
+
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 class="md-title">Programas</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="prog.cancel()">
+          <i class="material-icons">close</i>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <form>
+          <md-input-container>
+            <label for="nome">Nome do Programa</label>
+            <input type="text" ng-model="prog.programa.nome">
+          </md-input-container>
+          <md-input-container>
+            <label for="sigla">Sigla do Programa</label>
+            <input type="text" ng-model="prog.programa.sigla">
+          </md-input-container>
+          <md-input-container>
+            <label for="descricao">Descrição do Programa</label>
+            <textarea ng-model="prog.programa.descricao"></textarea>
+          </md-input-container>
+        </form>
+      </div>
+    </md-dialog-content>
+  </div>
+
+    <md-dialog-actions layout="row" layout-align="end end">
+      <md-button class="md-raised md-primary" ng-click="prog.salvar(prog.programa)">{{!prog.edit ? 'Novo' : 'Editar'}}</md-button>
+      <md-button class="md-raised md-warn" ng-click="prog.cancel()">Cancelar</md-button>
+
+    </md-dialog-actions>
+</md-dialog>
