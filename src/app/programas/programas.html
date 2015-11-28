@@ -1,0 +1,33 @@
+<div layout="vertical" layout-fill>
+
+  <md-content>
+    <section>
+      <md-data-table-toolbar>
+        <h2 class="md-title">Programas</h2>
+      </md-data-table-toolbar>
+
+      <md-data-table-container>
+        <table md-data-table md-row-select="selected" md-progress="deferred">
+          <thead md-order="query.order" md-trigger="onOrderChange">
+            <tr>
+              <th name="Programa" order-by="name"></th>
+              <th name="Sigla" order-by="name"></th>
+              <th name="Descrição" order-by="name"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr md-auto-select ng-repeat="programa in prog.programas">
+              <td>{{programa.nome}}</td>
+              <td>{{programa.sigla}}</td>
+              <td>{{programa.descricao}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </md-data-table-container>
+
+      <md-data-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{prog.programas.length}}" md-trigger="onPaginationChange"></md-data-table-pagination>
+    </section>
+
+  </md-content>
+
+</div>
