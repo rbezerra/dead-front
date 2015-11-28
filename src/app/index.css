@@ -12,6 +12,10 @@
        url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.ttf) format('truetype');
 }
 
+main {
+  min-height: calc(100vh - 128px);
+}
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -82,3 +86,4 @@ section.jumbotron h1 {
   float: right;
   width: 100px;
 }
+

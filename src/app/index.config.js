@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, toastrConfig, $mdThemingProvider) {
+  function config($logProvider, toastrConfig, $mdThemingProvider, $mdIconProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -44,6 +44,10 @@
     })
     .theme('default')
     .primaryPalette('deadPalette');
+
+
+    $mdIconProvider
+        .defaultFontSet('')
   }
 
 })();

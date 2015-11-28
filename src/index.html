@@ -23,39 +23,57 @@
 	<!--[if lt IE 10]>
 	  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
-	<md-toolbar layout="row">
-		<md-menu>
-		  <md-button>
-				<div ng-click="ui.openMenu($mdOpenMenu, $event)">
-				  DEAD - Gerenciador de Plano de Ensino
-				</div>
-		  </md-button>
-		  <md-menu-content width="4">
-        <md-menu-item>
-          <md-button ui-sref="home">
-            Início
-          </md-button>
-        </md-menu-item>
-        <md-menu-item>
-          <md-button ui-sref="programas">
-            Programas
-          </md-button>
-        </md-menu-item>
-        <md-menu-item>
-          <md-button ui-sref="">
-            Cursos
-          </md-button>
-        </md-menu-item>
-        <md-menu-item>
-          <md-button ui-sref="">
-            Perfis
-          </md-button>
-        </md-menu-item>
-      </md-menu-content>
-		</md-menu>
-	</md-toolbar>
+	<header flex>
+		<md-toolbar>
+			<div class="md-toolbar-tools" layout="row" layout-fill>
+				<md-menu md-offset="-5 50">
+				  <md-button>
+						<div ng-click="ui.openMenu($mdOpenMenu, $event)">
+							<md-icon><i class="material-icons">dashboard</i></md-icon> DEAD - Gerenciador de Plano de Ensino
+						</div>
+				  </md-button>
+				  <md-menu-content width="4">
+			      <md-menu-item>
+			        <md-button ui-sref="home">
+			          Início
+			        </md-button>
+			      </md-menu-item>
+			      <md-menu-item>
+			        <md-button ui-sref="programas">
+			          Programas
+			        </md-button>
+			      </md-menu-item>
+			      <md-menu-item>
+			        <md-button ui-sref="home">
+			          Cursos
+			        </md-button>
+			      </md-menu-item>
+			      <md-menu-item>
+			        <md-button ui-sref="home">
+			          Perfis
+			        </md-button>
+			      </md-menu-item>
+			    </md-menu-content>
+				</md-menu>
+				<span flex></span>
+				<md-button>
+					<md-icon><i class="material-icons">account_circle</i></md-icon> Login
+				</md-button>
+			</div>
+		</md-toolbar>
+	</header>
+	<main class="md-padding" layout="row" flex>
+		<div flex>
+			<div ui-view flex></div>
+		</div>
+	</main>
+	<footer>
+		<md-toolbar>
+			<div layout="row" layout-align="center center" flex>
+      </div>
+		</md-toolbar>
+	</footer>
 
-	<div ui-view></div>
 
 	<!-- build:js(src) scripts/vendor.js -->
 	<!-- bower:js -->
