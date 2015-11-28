@@ -35,9 +35,33 @@
       ];
 
       this.getAll = getAll;
+      this.save = save;
+      this.remove = remove;
 
       function getAll(){
         return data;
+      }
+
+      function insert(programa){
+        var id = data.length+1;
+        programa.id = id;
+        data.push(programa);
+      }
+
+      function update(programa){
+        data[programa.id] = programa;
+      }
+
+      function save(programa){
+        !programa.id ? insert(programa) : update(programa);
+      }
+
+      function remove(programa){
+        data.map(function(item){
+          if(item.id===programa.id){
+            data.splice(data.indexOf(item), 1);
+          }
+        });
       }
     }
 

@@ -1,30 +1,47 @@
-<div layout="vertical" layout-fill>
+<div>
 
-  <md-content>
+  <md-content layout="row" layout-align="center center" layout-wrap>
+    <section flex>
+      <h2 class="md-title">Programas</h2>
+      <md-input-container>
+        <label for="nome">Nome do Programa</label>
+        <input type="text" ng-model="prog.programa.nome">
+      </md-input-container>
+      <md-input-container>
+        <label for="sigla">Sigla do Programa</label>
+        <input type="text" ng-model="prog.programa.sigla">
+      </md-input-container>
+      <md-input-container>
+        <label for="descricao">Descrição do Programa</label>
+        <textarea ng-model="prog.programa.descricao"></textarea>
+      </md-input-container>
+      <md-button class="md-raised md-primary" ng-click="prog.save(prog.programa)">{{!prog.edit ? 'Novo' : 'Editar'}}</md-button>
+      <md-button class="md-raised md-warn" ng-click="prog.resetForm()">Cancelar</md-button>
+    </section>
+    <div flex> </div>
     <section>
-      <md-data-table-toolbar>
-        <h2 class="md-title">Programas</h2>
-      </md-data-table-toolbar>
-
-      <md-data-table-container>
-        <table md-data-table md-row-select="selected" md-progress="deferred">
-          <thead md-order="query.order" md-trigger="onOrderChange">
+      <!-- <md-data-table-toolbar>
+      </md-data-table-toolbar> -->
+        <table>
+          <thead>
             <tr>
-              <th name="Programa" order-by="name"></th>
-              <th name="Sigla" order-by="name"></th>
-              <th name="Descrição" order-by="name"></th>
+              <th data-field name="Programa">Programa</th>
+              <th data-field name="Sigla">Sigla</th>
+              <th data-field name="Descrição">Descrição</th>
+              <th data-field="" name="Ações">Ações</th>
             </tr>
           </thead>
           <tbody>
-            <tr md-auto-select ng-repeat="programa in prog.programas">
+            <tr ng-repeat="programa in prog.programas" ng-click="prog.editarPrograma(programa)">
               <td>{{programa.nome}}</td>
               <td>{{programa.sigla}}</td>
               <td>{{programa.descricao}}</td>
+              <td ng-click="prog.confirmRemove($event, programa)"><i class="material-icons">delete</i></td>
             </tr>
           </tbody>
         </table>
-      </md-data-table-container>
     </section>
+    <div flex></div>
 
   </md-content>
 

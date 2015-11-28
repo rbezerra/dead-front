@@ -18,7 +18,9 @@
     "moment": "~2.10.6",
     "animate.css": "~3.4.0",
     "angular": "~1.4.2",
-    "angular-material-data-table": "~0.8.14"
+    "angular-material-data-table": "~0.8.14",
+    "Materialize": "materialize#~0.97.3",
+    "angular-materialize": "*"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.2"
