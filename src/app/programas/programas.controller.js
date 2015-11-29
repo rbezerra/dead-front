@@ -15,6 +15,8 @@
         descricao: ''
       };
 
+      vm.persist = new ProgramasService();
+
       vm.edit = false;
       vm.customFullscreen = $mdMedia('sm');
 
@@ -72,8 +74,18 @@
       vm.resetForm = resetForm();
 
       vm.save = function(programa){
-        ProgramasService.save(programa);
-        resetForm();
+        if(!programa.id){
+          vm.persist.data = programa;
+          vm.persist.$save(programa, function(){
+            $log.debug("Programa salvo ", programa);
+            resetForm();
+          });
+        }else{
+          vm.persist.data = programa;
+          vm.persist.$update(function(){
+            $log.debug("Dados salvos", vm.persist.data);
+          });
+        }
       }
 
       vm.confirmRemove = function(ev, programa){
@@ -84,7 +96,10 @@
           .ok('Sim, Tenho Certeza!')
           .cancel('Cancelar');
         $mdDialog.show(confirm).then(function() {
-          ProgramasService.remove(programa);
+          vm.persist.data = programa;
+          vm.persist.$delete(function(){
+            $log.debug("Programa Excluído", programa);
+          });
           resetForm();
         }, function() {
           resetForm();
@@ -92,7 +107,7 @@
       }
 
       function reloadProgramas(){
-        vm.programas = ProgramasService.getAll();
+        vm.programas = ProgramasService.query();
       }
 
       function cleanForm(){
