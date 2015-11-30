@@ -49,6 +49,9 @@
             vm_.cancel = function(){
               $mdDialog.cancel();
             }
+
+
+
           },
           controllerAs: 'prog',
           templateUrl: 'app/programas/programa.form.tmpl.html',

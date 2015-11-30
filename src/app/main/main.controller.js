@@ -14,6 +14,10 @@
     vm.creationDate = 1448494585533;
     vm.showToastr = showToastr;
 
+    vm.modalLogin = function(ev, credentials){
+
+    }
+
     activate();
 
     function activate() {

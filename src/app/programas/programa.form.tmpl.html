@@ -13,18 +13,18 @@
 
     <md-dialog-content>
       <div class="md-dialog-content">
-        <form>
+        <form name="programaForm" novalidate>
           <md-input-container>
             <label for="nome">Nome do Programa</label>
-            <input type="text" ng-model="prog.programa.nome">
+            <input type="text" ng-model="prog.programa.nome" ng-required="true">
           </md-input-container>
           <md-input-container>
             <label for="sigla">Sigla do Programa</label>
-            <input type="text" ng-model="prog.programa.sigla">
+            <input type="text" ng-model="prog.programa.sigla" ng-required="true">
           </md-input-container>
           <md-input-container>
             <label for="descricao">Descrição do Programa</label>
-            <textarea ng-model="prog.programa.descricao"></textarea>
+            <textarea ng-model="prog.programa.descricao" ng-required="true"></textarea>
           </md-input-container>
         </form>
       </div>
@@ -32,7 +32,7 @@
   </div>
 
     <md-dialog-actions layout="row" layout-align="end end">
-      <md-button class="md-raised md-primary" ng-click="prog.salvar(prog.programa)">{{!prog.edit ? 'Novo' : 'Editar'}}</md-button>
+      <md-button class="md-raised md-primary" ng-disabled="programaForm.$invalid" ng-click="prog.salvar(prog.programa)">{{!prog.edit ? 'Novo' : 'Editar'}}</md-button>
       <md-button class="md-raised md-warn" ng-click="prog.cancel()">Cancelar</md-button>
 
     </md-dialog-actions>
