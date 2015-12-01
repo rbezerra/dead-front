@@ -1,0 +1,35 @@
+<md-dialog ng-cloak flex-sm="100" flex-md="100" flex-gt-md="auto">
+  <div layout="column">
+
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 class="md-title">Perfis</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="perf.cancel()">
+          <i class="material-icons">close</i>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <form name="perfilForm" novalidate>
+          <md-input-container>
+            <label for="nome">Nome do Perfil</label>
+            <input type="text" ng-model="perf.perfil.nome" ng-required="true">
+          </md-input-container>
+          <md-input-container>
+            <label for="descricao">Descrição do Perfil</label>
+            <textarea ng-model="perf.perfil.descricao" ng-required="true"></textarea>
+          </md-input-container>
+        </form>
+      </div>
+    </md-dialog-content>
+  </div>
+
+    <md-dialog-actions layout="row" layout-align="end end">
+      <md-button class="md-raised md-primary" ng-disabled="perfilForm.$invalid" ng-click="perf.salvar(perf.perfil)">{{!perf.edit ? 'Novo' : 'Editar'}}</md-button>
+      <md-button class="md-raised md-warn" ng-click="perf.cancel()">Cancelar</md-button>
+
+    </md-dialog-actions>
+</md-dialog>

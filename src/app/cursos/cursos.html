@@ -1,0 +1,37 @@
+<div>
+  <md-content layout="row" layout-align="start center" layout-wrap>
+    <section>
+      <!-- <md-data-table-toolbar>
+      </md-data-table-toolbar> -->
+        <div layout="row" layout-align="start center">
+          <h2 class="md-title">Cursos</h2>
+          <md-button class="md-fab md-mini md-primary" aria-label="Adicionar Curso" ng-click="cr.editarCurso($event, null)">
+            <md-icon  class="md-48" layout-align="center center">
+              <i class="material-icons">add</i>
+            </md-icon>
+          </md-button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th data-field name="Curso">Curso</th>
+              <th data-field name="Descrição">Descrição</th>
+              <th data-field="" name="Ações">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="curso in cr.Cursos" flex-sm="100" flex-md="100" flex-gt-md="auto">
+              <td>{{Curso.nome}}</td>
+              <td>{{Curso.sigla}}</td>
+              <td>{{Curso.descricao}}</td>
+              <td>
+                <i ng-click="cr.editarCurso($event, curso)" class="material-icons">edit</i>
+                <i ng-click="cr.confirmRemove($event, curso)" class="material-icons">delete</i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </section>
+  </md-content>
+
+</div>

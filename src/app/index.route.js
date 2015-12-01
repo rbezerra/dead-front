@@ -19,6 +19,18 @@
         templateUrl: 'app/programas/programas.html',
         controller: 'ProgramasController',
         controllerAs: 'prog'
+      })
+      .state('cursos', {
+        url: '/cursos',
+        templateUrl: 'app/cursos/cursos.html',
+        controller: 'CursosController',
+        controllerAs: 'cr'
+      })
+      .state('perfis',{
+        url: 'perfis',
+        templateUrl: 'app/perfis/perfis.html',
+        controller: 'PerfisController',
+        controllerAs: 'perf'
       });
 
     $urlRouterProvider.otherwise('/');

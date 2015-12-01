@@ -1,0 +1,36 @@
+<div>
+  <md-content layout="row" layout-align="start center" layout-wrap>
+    <section>
+      <!-- <md-data-table-toolbar>
+      </md-data-table-toolbar> -->
+        <div layout="row" layout-align="start center">
+          <h2 class="md-title">Perfis</h2>
+          <md-button class="md-fab md-mini md-primary" aria-label="Adicionar Perfil" ng-click="prog.editarPerfil($event, null)">
+            <md-icon  class="md-48" layout-align="center center">
+              <i class="material-icons">add</i>
+            </md-icon>
+          </md-button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th data-field name="Perfil">Perfil</th>
+              <th data-field name="Descrição">Descrição</th>
+              <th data-field="" name="Ações">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="perfil in prog.perfis" flex-sm="100" flex-md="100" flex-gt-md="auto">
+              <td>{{perfil.nome}}</td>
+              <td>{{perfil.descricao}}</td>
+              <td>
+                <i ng-click="prog.editarPerfil($event, perfil)" class="material-icons">edit</i>
+                <i ng-click="prog.confirmRemove($event, perfil)" class="material-icons">delete</i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </section>
+  </md-content>
+
+</div>

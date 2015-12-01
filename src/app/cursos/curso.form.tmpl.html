@@ -1,0 +1,35 @@
+<md-dialog ng-cloak flex-sm="100" flex-md="100" flex-gt-md="auto">
+  <div layout="column">
+
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 class="md-title">Cursos</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cr.cancel()">
+          <i class="material-icons">close</i>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <form name="cursoForm" novalidate>
+          <md-input-container>
+            <label for="nome">Nome do Curso</label>
+            <input type="text" ng-model="cr.curso.nome" ng-required="true">
+          </md-input-container>
+          <md-input-container>
+            <label for="descricao">Descrição do Curso</label>
+            <textarea ng-model="cr.curso.descricao" ng-required="true"></textarea>
+          </md-input-container>
+        </form>
+      </div>
+    </md-dialog-content>
+  </div>
+
+    <md-dialog-actions layout="row" layout-align="end end">
+      <md-button class="md-raised md-primary" ng-disabled="cursoForm.$invalid" ng-click="cr.salvar(cr.curso)">{{!cr.edit ? 'Novo' : 'Editar'}}</md-button>
+      <md-button class="md-raised md-warn" ng-click="cr.cancel()">Cancelar</md-button>
+
+    </md-dialog-actions>
+</md-dialog>
